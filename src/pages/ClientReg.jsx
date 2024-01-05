@@ -1,5 +1,5 @@
 import React from 'react';
-import '/Users/shubha/Desktop/Hello Doctor/Client/src/style/Clientregr.css';  
+import '../style/Clientreg.css';
 
 
 function ClientReg(){
