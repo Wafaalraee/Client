@@ -1,4 +1,3 @@
-// App.js
 import React from 'react';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
@@ -27,4 +26,3 @@ Our Responsibility</h2>
 };
 
 export default App;
-
