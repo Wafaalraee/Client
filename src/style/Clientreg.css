@@ -1,7 +1,3 @@
-*{
-  margin: auto;
-  background-color: rgb(196, 221, 231);
-}
 .register-section {
   width: 100%;
   height: 100vh;
@@ -18,7 +14,7 @@
   margin-top: 60px;
   color: blue;
 }
-.register-section.register-form {
+.register-section .register-form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -26,7 +22,7 @@
   margin-top: 60px;
 }
 
-.register-section.form-input {
+.register-section .form-input {
   font-size: 1rem;
   background-color: rgb(243, 235, 235);
   padding: 0.8rem 1.5rem;
