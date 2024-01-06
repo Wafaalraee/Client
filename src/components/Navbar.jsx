@@ -7,7 +7,13 @@ const Navbar = () => {
       <a href="/Doctors">Doctors</a>
       <a href="/appointments">Appointments</a>
       <a href="/Notifications">Notifications</a>
-      <a href="/login" className="login">Login</a>
+      <div className="dropdown">
+          <button className="login">Login</button>
+          <div className="dropdown-content">
+            <Link to="/login/doctor">Login as Doctor</Link>
+           <Link to="/login/client">Login as Client</Link>
+          </div>
+        </div>
       <div className="dropdown">
         <button className="register">Register</button>
         <div className="dropdown-content">

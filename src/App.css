@@ -192,7 +192,16 @@ button:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
+.dropdown .login{
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
 h2{
   text-align: center;
 }

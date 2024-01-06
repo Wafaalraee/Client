@@ -5,7 +5,7 @@ function LoginPage(){
     return (
         <div className='login-section'>
             <div className='login-container'>
-                <h1 className='heading'>Login Form</h1>
+                <h1 className='heading'>Login Form as Doctor</h1>
                 <form className="login-form">
                   <input
                     type="email"
