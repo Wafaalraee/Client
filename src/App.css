@@ -4,8 +4,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
 }
 
 header {
@@ -49,6 +47,11 @@ nav a.login:hover,
 nav a.register:hover {
   background-color: #ddd;
   color: black;
+}
+
+.app-container {
+  width: 80%;
+  margin: auto;
 }
 
 section {

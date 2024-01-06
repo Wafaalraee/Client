@@ -6,7 +6,7 @@ function ClientReg(){
     return (
         <div className='register-section'>
             <div className='register-container'>
-                <h1 className='heading'>Register Form</h1>
+                <h1 className='heading'>Register As Client</h1>
                 <form className="register-form">
                   <input
                     type="text"
