@@ -1,14 +1,15 @@
+// App.js
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from 'react';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
-import LoginPage from "./pages/LoginPage";
+import LoginClient from "./pages/LoginClient";
+import LoginDoctor from "./pages/LoginDoctor"
 import ClientReg from "./pages/ClientReg";
 import DoctorReg from "./pages/DoctorReg";
-import Footer from './components/Footer'
+import Footer from './components/Footer';
 import HomePage from "./components/HomePage";
 import './App.css';
-
 
 const App = () => {
   return (
@@ -18,10 +19,12 @@ const App = () => {
         <Navbar />
         <div className="app-container">
           <Routes>
-            <Route path="/" element={<HomePage/>} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/register/client" element={<ClientReg />} />
             <Route path="/register/doctor" element={<DoctorReg />} />
+            <Route path="/login/client" element={<LoginClient />} />
+            <Route path="/login/doctor" element={<LoginDoctor/>} />
+
           </Routes>
         </div>
         <Footer />
@@ -31,6 +34,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
