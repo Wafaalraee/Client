@@ -1,16 +1,27 @@
 import React from 'react';
+import image from "../image/doc2.png";
+import "../style/about.css";
 
 const AboutUs = () => {
   return (
-    <section className="about-us-section">
-      <h2>About Us</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique, ipsum in fermentum
-        hendrerit, urna orci varius nisi, ac feugiat orci diam in neque. Fusce ut justo sed nisi
-        dapibus hendrerit. Proin eget libero ut turpis tincidunt accumsan.
-      </p>
+     <section className="about-us-section">
+           <h1>About Us</h1>
+       <div className='about-section' >
+            <div className='about-img'>
+                 <img src={image}  alt="about" />
+             </div>
+             <div className='about-intro'>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                   ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                   laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                   velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                   sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+       </div>
+      
     </section>
   );
 };
 
 export default AboutUs;
+

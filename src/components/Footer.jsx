@@ -30,13 +30,13 @@ const Footer = () => {
         </div>
         <div className="social-links">
           <h3>Social link</h3>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com" className="facebook" target="_blank" rel="noopener noreferrer">
             <FaFacebookF />
           </a>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com" className="youtube" target="_blank" rel="noopener noreferrer">
             <FaYoutube />
           </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com" className="insta" target="_blank" rel="noopener noreferrer">
             <FaInstagram />
           </a>
         </div>
