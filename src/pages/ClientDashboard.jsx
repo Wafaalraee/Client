@@ -1,33 +1,37 @@
-// pages/ClientDashboard.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
+import '../style/ClientDash.css';
 
 const ClientDashboard = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-sidebar">
         <div className="client-info">
-          {/* Display client information here (e.g., name) */}
+          <div className="profile-picture">
+            <img src="https://placekitten.com/80/80" alt="Profile" />
+          </div>
           <p>Welcome, John Doe!</p>
         </div>
         <nav className="dashboard-nav">
           <ul>
-            <li><a href="/dashboard/client">Home</a></li>
-            <li><a href="/dashboard/client/appointments">Appointments</a></li>
-            <li><a href="/dashboard/client/logout">Logout</a></li>
+          <li><Link to="/dashboard/client/home">Home</Link></li>
+          <li><Link to="/dashboard/client/home">Doctors</Link></li>
+          <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
+          <li><Link to="/dashboard/client/home">Notifications</Link></li>
+          <li><Link to="/dashboard/client/profile">Profile</Link></li>
+          <li><Link to="/dashboard/client/logout">Logout</Link></li>
           </ul>
         </nav>
       </div>
       <div className="dashboard-content">
-        {/* Dashboard content goes here */}
         <h2>Client Dashboard</h2>
         <p>This is the main content of the client dashboard.</p>
-      </div>
-      <div className="dashboard-notifications">
-        {/* Notifications go here */}
-        <p>Notifications</p>
       </div>
     </div>
   );
 };
 
 export default ClientDashboard;
+
+
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../style/Doctorreg.css';  
 
 
@@ -41,6 +42,9 @@ function DoctorReg(){
                      <button type="submit" className="btn form-btn" > sign up </button>
             
               </form>
+              <p>
+          Already register <Link to="/login/Doctor">Login</Link>.
+        </p>
           </div>    
      </div>       
     )
