@@ -21,8 +21,10 @@ function LoginClient() {
   return (
     <div className='login-section'>
       <div className='login-container'>
-        <h1 className='heading'>Login Form As Client</h1>
+        <h1 className='heading'>Login As Client</h1>
+        
         <form className="login-form" onSubmit={handleLogin}>
+        <label for="email">Email:</label>
           <input
             type="email"
             name="email"
@@ -30,6 +32,7 @@ function LoginClient() {
             placeholder="Enter your email"
             required
           />
+           <label for="password">Password:</label>
           <input
             type="password"
             name="password"
@@ -38,10 +41,9 @@ function LoginClient() {
             required
           />
           <button type="submit" className="btn form-btn">Login</button>
+          <p className='para'> Don't have an account? <Link to = "/register/client">Register here</Link></p> 
         </form>
-        <p>
-          Don't have an account? <Link to="/register/client">Register here</Link>.
-        </p>
+       
       </div>
     </div>
   );

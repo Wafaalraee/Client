@@ -4,29 +4,30 @@
 }
 .register-section .register-container {
   flex-direction: column;
-  gap: 2rem;
-  width: 100%;
+  width: 100%; 
 }
 .register-section .heading{
   text-align:center;
   margin-top: 60px;
-  color: blue;
+  color: rgb(3, 3, 23);
 }
 .register-section .register-form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 60px;
+   margin-top: 60px;
 }
-
+.register-form label {
+  margin-bottom:10px;
+  font-weight: 400;
+ }
 .register-section .form-input {
   font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   background-color: rgb(243, 235, 235);
   padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 5px;
-
+  opacity: .8;
 }
 .register-section .btn{
   width: 100px;
@@ -37,7 +38,10 @@
   font-size: 18px;
   font-weight: 400;
 }
-  
+.para{
+  font-size: 15px;
+  margin-top:4px;
+}
   
   
   
