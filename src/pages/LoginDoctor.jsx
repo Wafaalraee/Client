@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../style/Login.css';
 
-function LoginPage(){
+function LoginDoctor(){
     return (
         <div className='login-section'>
             <div className='login-container'>
-                <h1 className='heading'>Login Form as Doctor</h1>
+                <h1 className='heading'>Login Form As Doctor</h1>
                 <form className="login-form">
                   <input
                     type="email"
@@ -20,10 +21,12 @@ function LoginPage(){
                      placeholder="Enter your password" />
          
                      <button type="submit" className="btn form-btn" > Login </button>
-            
               </form>
+              <p>
+          Don't have an account? <Link to="/register/Doctor">Register here</Link>.
+        </p>
           </div>    
      </div>       
     )
 } 
-export default LoginPage;
+export default LoginDoctor;

@@ -1,0 +1,56 @@
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .dashboard-sidebar {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    min-width: 200px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .client-info {
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .dashboard-nav li {
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-nav a {
+    text-decoration: none;
+    color: #050505;
+    font-weight: bold;
+  }
+  
+  .dashboard-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .dashboard-notifications {
+    background-color: #eee;
+    padding: 20px;
+    min-width: 200px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: column;
+    }
+  
+    .dashboard-notifications,
+    .dashboard-sidebar {
+      min-width: auto;
+    }
+  }
+  

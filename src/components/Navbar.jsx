@@ -10,15 +10,15 @@ const Navbar = () => {
       <div className="dropdown">
           <button className="login">Login</button>
           <div className="dropdown-content">
-            <Link to="/login/doctor">Login as Doctor</Link>
-           <Link to="/login/client">Login as Client</Link>
+            <Link to="/login/doctor">Login As Doctor</Link>
+           <Link to="/login/client">Login As Client</Link>
           </div>
         </div>
       <div className="dropdown">
         <button className="register">Register</button>
         <div className="dropdown-content">
-          <Link to="/register/doctor">Apply as Doctor</Link>
-          <Link to="/register/client">Apply as Client</Link>
+          <Link to="/register/doctor">Apply As Doctor</Link>
+          <Link to="/register/client">Apply As Client</Link>
         </div>
       </div>
     </nav>
