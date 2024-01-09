@@ -1,46 +1,92 @@
-import React from 'react';
+import React , {useState} from 'react';
 import '../style/Clientreg.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
-function ClientReg(){
+  function ClientReg() {
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName:"",
+    email: "",
+    password: "",
+  });
+
+  const [err, setErr] = useState();
+  const [success, setSuccess] = useState();
+
+  const regClient = (e) => {
+    e.preventDefault();
+    if (user.email !== "" && user.password !== "" && user.firstName !== "" && user.lastName !== "") {
+      axios
+        .post("http:localhost:4500/register/client")
+        
+        .then((result) => {
+          setSuccess(result.data);
+          window.location.href = "/login/client";
+        })
+        .catch((err) => {
+          console.error(err);
+          setErr(err.response.data);
+        });
+    } else {
+      setErr("Email, Username  and Password are required");
+    }
+  };
+
+  const handleChange = (e) => {
+    // Update the state when input values change
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
+
     return (
         <div className='register-section'>
             <div className='register-container'>
                 <h1 className='heading'>Register As Client</h1>
-                <form className="register-form">
-                <label for="firstname">First Name:</label>
-                  <input
+                <form className="register-form" onSubmit={regClient}>
+                   <label for="firstname">First Name:</label>
+                   <input
                     type="text"
                     name="firstname"
                     className="form-input"
-                     placeholder="Enter your first name"/>
+                     placeholder="Enter your first name"
+                     value={user.firstName}
+                     onChange={handleChange}/>
+
                    <label for="lastname">Last Name:</label>
                    <input
                     type="text"
                     name="lastname"
                     className="form-input"
-                    placeholder="Enter your last name"/>
+                    placeholder="Enter your last name"
+                    value={user.lastName}
+                    onChange={handleChange}/>
+
                   <label for="email">Email:</label>
                   <input
                     type="email"
                     name="email"
                     className="form-input"
-                    placeholder="Enter your email"  />
+                    placeholder="Enter your email" 
+                    value={user.email}
+                    onChange={handleChange} />
+
                    <label for="password">Password:</label>
                    <input
                      type="password"
                      name="password"
                      className="form-input"
-                     placeholder="Enter your password" />
-                   <label >Confirm Password:</label>
-                   <input
-                     type="password"
-                     name="confpassword"
-                     className="form-input"
-                     placeholder="Confirm your password"/>
+                     placeholder="Enter your password"
+                     value={user.password}
+                     onChange={handleChange} />
+                   
          
                      <button type="submit" className="btn form-btn" > sign up </button>
+                     <p>{err}</p>
+                     <p>{success}</p>
                      <p> Already registered? <Link to = "/login/client">Login</Link></p>
               </form>
           </div>    
