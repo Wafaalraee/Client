@@ -29,9 +29,10 @@ const ClientAppointmentsPage = ({ userData }) => {
       </div>
       <nav className="dashboard-nav">
         <ul>
-        <li><Link to="/dashboard/client/home">Home</Link></li>  <li><Link to="/dashboard/client/home">Doctors</Link></li>
+        <li><Link to="/dashboard/client/home">Home</Link></li>  
+        <li><Link to="/dashboard/client/doctors">Doctors</Link></li>
           <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
-          <li><Link to="/dashboard/client/home">Notifications</Link></li>
+          <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/client/profile">Profile</Link></li>
           <li><Link to="/dashboard/client/logout">Logout</Link></li>
         </ul>

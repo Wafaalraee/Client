@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../style/ClientDash.css';
-
-const ClientDashboard = () => {
+const ClientNotifications = () => {
   return (
-    <div className="dashboard-container">
+    <div>
+     <div className="dashboard-container">
       <div className="dashboard-sidebar">
         <div className="client-info">
           <div className="profile-picture">
@@ -23,15 +22,10 @@ const ClientDashboard = () => {
           </ul>
         </nav>
       </div>
-      <div className="dashboard-content">
-        <h2>Client Dashboard</h2>
-        <p>This is the main content of the client dashboard.</p>
-      </div>
+    </div>
     </div>
   );
 };
 
-export default ClientDashboard;
-
-
+export default ClientNotifications;
 
