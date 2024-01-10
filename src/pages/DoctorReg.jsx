@@ -6,8 +6,8 @@ import axios from 'axios';
 
 function DoctorReg() {
   const [user, setUser] = useState({
-    firstName: "",
-    lastName:"",
+    firstname: "",
+    lastname:"",
     email: "",
     password: "",
   });
@@ -18,12 +18,12 @@ function DoctorReg() {
 
   const regDoctor = (e) => {
     e.preventDefault();
-    if (user.email !== "" && user.password !== "" && user.firstName !== "" && user.lastName !== "") {
+    if (user.email !== "" && user.password !== "" && user.firstname !== "" && user.lastname !== "") {
       axios
-        .post("http:localhost:4500/register/doctor")
+        .post("http://localhost:4500/register/doctor", user)
         
         .then((result) => {
-          setSuccess(result.data);
+          setSuccess(result.data.message);
           window.location.href = "/login/doctor";
         })
         .catch((err) => {

@@ -18,9 +18,10 @@ const [err, setErr] = useState();
     };
     if (email !== "" && password !== "") {
       axios
-        .post("http:localhost:4500/login/doctor" , data)
+        .post("http://localhost:4500/login/doctor" , data)
         .then((result) => {
-          localStorage.setItem("token", result.data);
+          localStorage.setItem("token", result.data.token);
+          localStorage.setItem("doctor_id", result.data.doctorID);
           window.location.href = "/dashboard/doctor";
           })
           .catch((error) => {
