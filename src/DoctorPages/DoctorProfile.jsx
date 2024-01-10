@@ -1,8 +1,33 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-const  DoctorProfile = () => {
-  const [userData, setUserData] = useState({
- 
+
+const DoctorProfile = () => {
+  const specializationOptions = [
+    'Cardiology',
+    'Dermatology',
+    'Gastroenterology',
+    'Orthopedics',
+    'Pediatrics',
+    'Neurology',
+    'Oncology',
+    'Psychiatry',
+    'Radiology',
+    'Urology',
+    // Add more options as needed
+  ];
+
+  const [doctorData, setDoctorData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    specialization: "",
+    date: "",
+    time: "",
+    experience: "",
+    feePerConsultation: "",
+    phoneNumber: "",
+    address: "",
   });
 
   const handleChange = (e) => {
@@ -27,33 +52,29 @@ const  DoctorProfile = () => {
           </div>
           <p>Welcome, Doctor!</p>
         </div>
-        <p>Welcome, Doctor!</p>
+        <nav className="dashboard-nav">
+          <ul>
+            <li><Link to="/dashboard/client/home">Home</Link></li>
+            <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
+            <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
+            <li><Link to="/dashboard/client/profile">Profile</Link></li>
+            <li><Link to="/dashboard/client/logout">Logout</Link></li>
+          </ul>
+        </nav>
       </div>
-      <nav className="dashboard-nav">
-        <ul>
-        <li><Link to="/dashboard/client/home">Home</Link></li> 
-        <li><Link to="/dashboard/client/doctors"> Apply As Doctors</Link></li>
-          <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
-          <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
-          <li><Link to="/dashboard/client/profile">Profile</Link></li>
-          <li><Link to="/dashboard/client/logout">Logout</Link></li>
-        </ul>
-      </nav>
-    </div>
-    <div className="dashboard-content">
-
-      <div>
-      <h2>Edit Profile</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          First Name:
-          <input
-            type="text"
-            name="firstName"
-            value={userData.firstName}
-            onChange={handleChange}
-          />
-        </label>
+      <div className="dashboard-content">
+        <div>
+            <h2>Edit Profile</h2>
+          <form onSubmit={handleSubmit}>
+            <label>
+              First Name:
+              <input
+                type="text"
+                name="firstname"
+                value={doctorData.firstname}
+                onChange={handleChange}
+              />
+            </label>
 
             <label>
               Last Name:
@@ -189,6 +210,5 @@ const  DoctorProfile = () => {
 };
 
 export default DoctorProfile;
-
 
 
