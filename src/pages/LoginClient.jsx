@@ -33,7 +33,7 @@ const submitLogIn = (e) => {
   };
   if (email !== "" && password !== "") {
     axios
-      .post("http:localhost:4500/login/client" , data)
+      .post("http://localhost:4500/login/client" , data)
       .then((result) => {
         localStorage.setItem("token", result.data);
 
