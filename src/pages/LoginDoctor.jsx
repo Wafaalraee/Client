@@ -36,7 +36,7 @@ const [err, setErr] = useState();
       <div className='login-container'>
           <h1 className='heading'>Login As Doctor</h1>                
           <form className="login-form"  onSubmit={submitLogin}>
-          <label for="email">Email:</label>
+          <label htmlFor="email">Email:</label>
             <input
               type="email"
               name="email"
@@ -44,7 +44,7 @@ const [err, setErr] = useState();
               placeholder="Enter your email"
               onChange={(e) => setEmail(e.target.value)}/>
 
-            <label for="password">Password:</label>
+            <label htmlFor="password">Password:</label>
             <input
               type="password"
               name="password"
