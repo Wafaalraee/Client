@@ -1,0 +1,13 @@
+    .logout{
+    width: 120px;
+    height: 50px;
+    background-color: rgb(43, 153, 238);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px , 20px;
+    cursor: pointer;  
+}
+  .logout:hover{
+    background-color: rgb(137, 168, 195);
+}

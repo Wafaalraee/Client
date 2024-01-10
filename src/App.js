@@ -21,6 +21,7 @@ import DoctorNotifications from './DoctorPages/DoctorNotifications';
 import Appointments from './DoctorPages/Appointments';
 import ApplyDoctor from './DoctorPages/ApplyDoctor';
 import DoctorProfile from './DoctorPages/DoctorProfile';
+
 import './App.css';
 
 const App = () => {
