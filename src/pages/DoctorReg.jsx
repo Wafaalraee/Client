@@ -45,9 +45,8 @@ function DoctorReg() {
      return (
       <div className='register-section'>
           <div className='register-container'>
-               <h1 className='heading'>Register As Doctor</h1>
-
-                  <form className="register-form" onSubmit={regDoctor}>
+                <h1 className='heading'>Register As Doctor</h1>
+                <form className="register-form" onSubmit={regDoctor}>
                       <label for="name">First Name:</label>
                           <input
                             type="text"
@@ -87,7 +86,9 @@ function DoctorReg() {
        
                            <button type="submit" className="btn form-btn" > sign up </button>
                           <p className='para'> Already registered? <Link to= "/login/Doctor">Login</Link></p> 
-                </form>        
+                </form>
+                <h3>{ err ? err : null }</h3>
+                <h3>{ success ? success : null }</h3> 
           </div>    
      </div>       
     )

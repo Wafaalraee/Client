@@ -41,7 +41,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <p class="footer-copyright-section">&copy; 2024 Health Booker. All rights reserved.</p>
+      <p className="footer-copyright-section">&copy; 2024 Health Booker. All rights reserved.</p>
     </footer>
   );
 };
