@@ -42,6 +42,14 @@
   font-size: 15px;
   margin-top:4px;
 }
-  
+.footer-container > div {
+  display: flex;
+  background-color: rgba(30,55,90,.7);
+  color: #fff;
+  justify-content: space-between;
+  padding: 0 100px;
+  margin-top:550px
+}
+
   
   
