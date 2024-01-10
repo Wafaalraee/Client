@@ -15,7 +15,6 @@ const DoctorDashboard = () => {
       <nav className="dashboard-nav">
         <ul>
         <li><Link to="/dashboard/doctor/home">Home</Link></li> 
-         <li><Link to="/dashboard/doctor/doctors">Apply As a Doctor</Link></li>
           <li><Link to="/dashboard/doctor/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/doctor/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/doctor/profile">Profile</Link></li>

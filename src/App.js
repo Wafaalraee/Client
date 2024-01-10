@@ -1,3 +1,4 @@
+// Import necessary modules
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from 'react';
 import Header from './components/Header';
@@ -19,9 +20,9 @@ import DoctorDashBoard from './DoctorPages/DoctorDashBoard';
 import DoctorHomePage from './DoctorPages/DoctorHomePage';
 import DoctorNotifications from './DoctorPages/DoctorNotifications';
 import Appointments from './DoctorPages/Appointments';
-import ApplyDoctor from './DoctorPages/ApplyDoctor';
 import DoctorProfile from './DoctorPages/DoctorProfile';
-
+import DoctorLogout from './DoctorPages/DoctorLogout';
+import ClientLogout from './pages/ClientLogout';
 import './App.css';
 
 const App = () => {
@@ -32,10 +33,12 @@ const App = () => {
     address: '123 Main St, Cityville',
     phoneNumber: '123-456-7890',
   });
+
   const DoctortData = [
     { id: 1, name: 'Dr. Smith', phoneNumber: '123-456-7890', address: '123 Medical St', fee: '$100', timing: '9:00 AM - 5:00 PM' },
     { id: 2, name: 'Dr. Johnson', phoneNumber: '987-654-3210', address: '456 Health Ave', fee: '$120', timing: '10:00 AM - 6:00 PM' },
   ];
+
   return (
     <Router>
       <div className="App">
@@ -52,15 +55,16 @@ const App = () => {
             <Route path="/dashboard/client/profile" element={<ProfilePage />} />
             <Route path="/dashboard/client/home" element={<ClientHomePage userData={clientData} />} />
             <Route path="/dashboard/client/appointments" element={<ClientAppointmentsPage userData={clientData} />} />
-            <Route path="/dashboard/client/doctors" element={<DoctorList userData={DoctortData}/>} />
+            <Route path="/dashboard/client/doctors" element={<DoctorList userData={DoctortData} />} />
             <Route path="/dashboard/client/notifications" element={<ClientNotifications />} />
             <Route path="/dashboard/client/doctors/2" element={<BookAppointment />} />
             <Route path="/dashboard/doctor" element={<DoctorDashBoard />} />
             <Route path="/dashboard/doctor/home" element={<DoctorHomePage userData={DoctortData} />} />
             <Route path="/dashboard/doctor/notifications" element={<DoctorNotifications />} />
             <Route path="/dashboard/doctor/appointments" element={<Appointments userData={DoctortData} />} />
-            <Route path="/dashboard/doctor/doctors" element={<ApplyDoctor />} />
             <Route path="/dashboard/doctor/profile" element={<DoctorProfile />} />
+            <Route path="/dashboard/doctor/logout" element={<DoctorLogout />} />
+            <Route path="/dashboard/client/logout" element={<ClientLogout />} />
           </Routes>
         </div>
         <Footer />
@@ -70,6 +74,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
