@@ -23,7 +23,6 @@ import Appointments from './DoctorPages/Appointments';
 import DoctorProfile from './DoctorPages/DoctorProfile';
 import DoctorLogout from './DoctorPages/DoctorLogout';
 import ClientLogout from './pages/ClientLogout';
- 
 import './App.css';
 
 const App = () => {

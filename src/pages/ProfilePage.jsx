@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 const ProfilePage = () => {
+  
   const [userData, setUserData] = useState({
     firstName: 'John',
     lastName: 'Doe',
@@ -93,7 +95,7 @@ const ProfilePage = () => {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Update</button>
+        <button type="submit" onClick={handleChange}>Update</button>
       </form>
     </div>
     </div>

@@ -47,7 +47,7 @@ import axios from 'axios';
             <div className='register-container'>
                 <h1 className='heading'>Register As Client</h1>
                 <form className="register-form" onSubmit={regClient}>
-                   <label for="firstname">First Name:</label>
+                   <label htmlFor="firstname">First Name:</label>
                    <input
                     type="text"
                     name="firstname"
@@ -56,7 +56,7 @@ import axios from 'axios';
                      value={user.firstName}
                      onChange={handleChange}/>
 
-                   <label for="lastname">Last Name:</label>
+                   <label htmlFor="lastname">Last Name:</label>
                    <input
                     type="text"
                     name="lastname"
@@ -65,7 +65,7 @@ import axios from 'axios';
                     value={user.lastName}
                     onChange={handleChange}/>
 
-                  <label for="email">Email:</label>
+                  <label htmlFor="email">Email:</label>
                   <input
                     type="email"
                     name="email"
@@ -74,7 +74,7 @@ import axios from 'axios';
                     value={user.email}
                     onChange={handleChange} />
 
-                   <label for="password">Password:</label>
+                   <label htmlFor="password">Password:</label>
                    <input
                      type="password"
                      name="password"
