@@ -34,7 +34,8 @@ const submitLogIn = (e) => {
     axios
       .post("http://localhost:4500/login/client" , data)
       .then((result) => {
-        localStorage.setItem("token", result.data);
+        localStorage.setItem("token", result.data.token);
+        localStorage.setItem("user-id", result.data.userID);
 
         window.location.href = "/dashboard/client";
       })
