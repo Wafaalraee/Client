@@ -1,6 +1,9 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
+import "../style/bookappointment.css"
+
+
 const BookAppointment = ({ doctorName }) => {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
@@ -33,7 +36,7 @@ const BookAppointment = ({ doctorName }) => {
           <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/client/profile">Profile</Link></li>
-          <li><Link to="/dashboard/client/logout">Logout</Link></li>
+          <button className='logout'><Link to="/dashboard/client/logout">Logout</Link></button>
         </ul>
       </nav>
     </div>

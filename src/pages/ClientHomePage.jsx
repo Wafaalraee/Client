@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "../style/clienthome.css"
+
 const ClientHomePage = ({ userData }) => {
   if (!userData) {
     return <div>Loading...</div>; 
@@ -21,13 +23,13 @@ const ClientHomePage = ({ userData }) => {
           <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/client/profile">Profile</Link></li>
-          <li><Link to="/dashboard/client/logout">Logout</Link></li>
+          <button className='logout'><Link to="/dashboard/client/logout">Logout</Link></button>
         </ul>
       </nav>
     </div>
     <div className="dashboard-content">
       <h2>Welcome to your HomePage</h2>
-      <div>
+      <div className='dashbord-info'>
       <p>First Name: {userData.firstName}</p>
       <p>Last Name: {userData.lastName}</p>
       <p>Email: {userData.email}</p>

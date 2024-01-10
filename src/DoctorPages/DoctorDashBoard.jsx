@@ -19,13 +19,13 @@ const DoctorDashboard = () => {
           <li><Link to="/dashboard/doctor/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/doctor/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/doctor/profile">Profile</Link></li>
-          <li><Link to="/dashboard/doctor/logout">Logout</Link></li>
+          <button className='logout'><Link to="/dashboard/doctor/logout">Logout</Link></button>
         </ul>
       </nav>
     </div>
       <div className="dashboard-content">
-        <h2>Client Dashboard</h2>
-        <p>This is the main content of the client dashboard.</p>
+        <h2>Doctor Dashboard</h2>
+        <p className='doc-content'>This is the main content of the doctor dashboard.</p>
       </div>
     </div>
   );

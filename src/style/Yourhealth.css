@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: row;
     row-gap:50px;
-    width: 100%;
-    margin: auto;
+    width: 90%;
+    margin:  auto;
 }
 .doctor-intro{
     display: flex;
