@@ -7,6 +7,7 @@ const DoctorLogout = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user-id");
+    localStorage.removeItem("doctor_id");
     navigate('/login/client');
   };
 

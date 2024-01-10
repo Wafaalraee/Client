@@ -40,7 +40,7 @@ const submitLogIn = (e) => {
         window.location.href = "/dashboard/client";
       })
       .catch((error) => {
-                setErr(error.response.data);
+                setErr(error.response.data.message);
         });
     } else {
       setErr("Email and Password are required");
