@@ -6,8 +6,8 @@ import axios from 'axios';
 
   function ClientReg() {
   const [user, setUser] = useState({
-    firstName: "",
-    lastName:"",
+    firstname: "",
+    lastname:"",
     email: "",
     password: "",
   });
@@ -17,12 +17,12 @@ import axios from 'axios';
 
   const regClient = (e) => {
     e.preventDefault();
-    if (user.email !== "" && user.password !== "" && user.firstName !== "" && user.lastName !== "") {
+    if (user.email !== "" && user.password !== "" && user.firstname !== "" && user.lastname !== "") {
       axios
-        .post("http:localhost:4500/register/client")
+        .post("http://localhost:4500/register/client", user)
         
         .then((result) => {
-          setSuccess(result.data);
+          setSuccess(result.data.message);
           window.location.href = "/login/client";
         })
         .catch((err) => {
