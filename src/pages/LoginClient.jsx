@@ -23,7 +23,6 @@ function LoginClient() {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [err, setErr] = useState();
-
 const submitLogIn = (e) => {
   e.preventDefault();
   setErr("");

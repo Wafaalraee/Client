@@ -15,7 +15,6 @@ const DoctorDashboard = () => {
       <nav className="dashboard-nav">
         <ul>
         <li><Link to="/dashboard/doctor/home">Home</Link></li> 
-         <li><Link to="/dashboard/doctor/doctors">Apply As a Doctor</Link></li>
           <li><Link to="/dashboard/doctor/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/doctor/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/doctor/profile">Profile</Link></li>
@@ -24,7 +23,7 @@ const DoctorDashboard = () => {
       </nav>
     </div>
       <div className="dashboard-content">
-        <h2>Client Dashboard</h2>
+        <h2>Doctor Dashboard</h2>
         <p>This is the main content of the client dashboard.</p>
       </div>
     </div>
