@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '../style/Login.css';
 import axios from 'axios';
 
-
 function LoginDoctor() {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");

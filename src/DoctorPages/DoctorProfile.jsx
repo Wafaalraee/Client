@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-const ProfilePage = () => {
+const  DoctorProfile = () => {
   const [userData, setUserData] = useState({
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john@example.com',
-    address: '123 Main St, Cityville',
-    phoneNumber: '123-456-7890',
+ 
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,12 +22,12 @@ const ProfilePage = () => {
         <div className="profile-picture">
           <img src="https://placekitten.com/80/80" alt="Profile" />
         </div>
-        <p>Welcome, John Doe!</p>
+        <p>Welcome, Doctor!</p>
       </div>
       <nav className="dashboard-nav">
         <ul>
         <li><Link to="/dashboard/client/home">Home</Link></li> 
-        <li><Link to="/dashboard/client/doctors">Doctors</Link></li>
+        <li><Link to="/dashboard/client/doctors"> Apply As Doctors</Link></li>
           <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/client/profile">Profile</Link></li>
@@ -102,6 +98,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
-
-
+export default DoctorProfile;
