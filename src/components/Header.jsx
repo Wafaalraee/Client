@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header>
       <h1>Hello Doctor
-      <i className="em em-female-doctor" aria-label=""></i>
+        <i className="em em-female-doctor"></i>
       </h1>
     </header>
   );
