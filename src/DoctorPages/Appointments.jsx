@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom'; 
 import '../style/ClientAppointmentsPage.css'; 
+
 const DoctorAppointments = ({ userData }) => {
   const [appointments, setAppointments] = useState([]);
 
@@ -56,7 +57,7 @@ const DoctorAppointments = ({ userData }) => {
           <li><Link to="/dashboard/doctor/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/doctor/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/doctor/profile">Profile</Link></li>
-          <li><Link to="/dashboard/doctor/logout">Logout</Link></li>
+          <button className='logout'><Link to="/dashboard/doctor/logout">Logout</Link></button>
         </ul>
       </nav>
     </div>

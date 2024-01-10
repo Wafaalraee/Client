@@ -35,7 +35,7 @@ const ProfilePage = () => {
           <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/client/profile">Profile</Link></li>
-          <li><Link to="/dashboard/client/logout">Logout</Link></li>
+          <button className='logout'><Link to="/dashboard/client/logout">Logout</Link></button>
         </ul>
       </nav>
     </div>

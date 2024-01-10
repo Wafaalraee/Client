@@ -25,6 +25,8 @@ nav {
   border-bottom: .5px solid #e9f1fa;
   -webkit-box-shadow: 5px 5px 33px 5px #c2e3ee; 
   box-shadow: 5px 5px 33px 5px #c0d7df;
+  width: 100%;
+  margin: auto;
 }
 
 nav a {
@@ -58,7 +60,7 @@ nav a.register:hover {
 }
 
 .app-container {
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 

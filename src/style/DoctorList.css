@@ -1,5 +1,9 @@
 .doctor-list-container {
     padding: 20px;
+    margin: o, auto;
+  }
+  .doctor-list-container h2{
+     text-align: center;
   }
   
   .doctors {

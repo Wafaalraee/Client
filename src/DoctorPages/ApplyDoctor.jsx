@@ -48,7 +48,7 @@ const ApplyAsDoctorPage = () => {
           <li><Link to="/dashboard/doctor/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/doctor/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/doctor/profile">Profile</Link></li>
-          <li><Link to="/dashboard/doctor/logout">Logout</Link></li>
+          <button className='logout'><Link to="/dashboard/doctor/logout">Logout</Link></button>
         </ul>
       </nav>
     </div>
@@ -56,95 +56,110 @@ const ApplyAsDoctorPage = () => {
       <h2>Apply as a Doctor</h2>
       <form className="apply-as-doctor-form" onSubmit={handleSubmit}>
         <div className="form-columns">
-          <div className="form-section">
             <h3>Personal Info</h3>
-            <hr />
-            <label htmlFor="firstName">First Name:</label>
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
-            />
+            <div className="form-section-1">
+            
+            <div className='sec-1'>
+                <label for="firstName">First Name:</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                />
 
-            <label htmlFor="lastName">Last Name:</label>
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-            />
+                <label for="lastName">Last Name:</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  className='inputt'
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-            <label htmlFor="phoneNumber">Phone Number:</label>
-            <input
-              type="tel"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-              required
-            />
+         <div className='sec-2'>
+                <label htmlFor="phoneNumber">Phone Number:</label>
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  required
+                />
 
-            <label htmlFor="address">Address:</label>
-            <textarea
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-section">
+                <label htmlFor="address">Address:</label>
+                <textarea
+                  name="address"
+                  className='inputt'
+                  value={formData.address}
+                  onChange={handleChange}
+                  required
+                />
+            </div>
+            </div>
+
+          
+
+          <div className="form-section-2">
             <h3>Professional Info</h3>
-            <hr />
-            <label htmlFor="specialization">Specialization:</label>
-            <select
-              name="specialization"
-              value={formData.specialization}
-              onChange={handleChange}
-              required
-            >
-              <option value="" disabled>Select Specialization</option>
-              {specializationOptions.map(option => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </select>
+            
+            <div className='sec-3'>
+                <label htmlFor="specialization">Specialization:</label>
+                <select
+                  name="specialization"
+                  value={formData.specialization}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="" disabled>Select Specialization</option>
+                  {specializationOptions.map(option => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
 
-            <label htmlFor="date">Date:</label>
-            <input
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              required
-            />
+                <label htmlFor="date">Date:</label>
+                <input
+                  type="date"
+                  name="date"
+                  className='inputt'
+                  value={formData.date}
+                  onChange={handleChange}
+                  required
+                />
+                </div>
+            <div className='sec-4'>
+                <label htmlFor="time">Time:</label>
+                <input
+                  type="time"
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  required
+                />
 
-            <label htmlFor="time">Time:</label>
-            <input
-              type="time"
-              name="time"
-              value={formData.time}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="experience">Experience (in years):</label>
-            <input
-              type="number"
-              name="experience"
-              value={formData.experience}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="consultationFee">Fee per Consultation:</label>
-            <input
-              type="text"
-              name="consultationFee"
-              value={formData.consultationFee}
-              onChange={handleChange}
-              required
-            />
+                <label htmlFor="experience">Experience (in years):</label>
+                <input
+                  type="number"
+                  name="experience"
+                  className='inputt'
+                  value={formData.experience}
+                  onChange={handleChange}
+                  required
+                />
+                </div>
+              <div className='sec-5'>
+                  <label htmlFor="consultationFee">Fee per Consultation:</label>
+                  <input
+                    type="text"
+                    name="consultationFee"
+                    value={formData.consultationFee}
+                    onChange={handleChange}
+                    required
+                  />
+                  </div>
           </div>
         </div>
 
