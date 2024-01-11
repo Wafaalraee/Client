@@ -36,6 +36,7 @@ const submitLogIn = (e) => {
       .then((result) => {
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("user-id", result.data.userID);
+        localStorage.setItem("user-name", result.data.userName);
 
         window.location.href = "/dashboard/client";
       })
@@ -70,8 +71,8 @@ const submitLogIn = (e) => {
             />
             <button type="submit" className="btn form-btn" >Login</button>
             <p className='para'> Don't have an account? <Link to = "/register/client">Register here</Link></p> 
+            <p className='err-msg'>{ err ? err : null }</p>
           </form>
-          <h3>{ err ? err : null }</h3>
         </div>
     </div>
   );

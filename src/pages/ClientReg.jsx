@@ -85,8 +85,8 @@ import axios from 'axios';
                    
          
                      <button type="submit" className="btn form-btn" > sign up </button>
-                     <p>{err}</p>
-                     <p>{success}</p>
+                     <p className='err-msg'>{err ? err : null}</p>
+                     <p className='success-msg'>{success  ? success : null}</p>
                      <p> Already registered? <Link to = "/login/client">Login</Link></p>
               </form>
           </div>    

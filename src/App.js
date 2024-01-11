@@ -34,11 +34,6 @@ const App = () => {
     phoneNumber: '123-456-7890',
   });
 
-  const DoctortData = [
-    { id: 1, name: 'Dr. Smith', phoneNumber: '123-456-7890', address: '123 Medical St', fee: '$100', timing: '9:00 AM - 5:00 PM' },
-    { id: 2, name: 'Dr. Johnson', phoneNumber: '987-654-3210', address: '456 Health Ave', fee: '$120', timing: '10:00 AM - 6:00 PM' },
-  ];
-
   return (
     <Router>
       <div className="App">
@@ -53,15 +48,15 @@ const App = () => {
             <Route path="/login/doctor" element={<LoginDoctor />} />
             <Route path="/dashboard/client" element={<ClientDashBoard />} />
             <Route path="/dashboard/client/profile" element={<ProfilePage />} />
-            <Route path="/dashboard/client/home" element={<ClientHomePage userData={clientData} />} />
+            <Route path="/dashboard/client/home" element={<ClientHomePage />} />
             <Route path="/dashboard/client/appointments" element={<ClientAppointmentsPage userData={clientData} />} />
-            <Route path="/dashboard/client/doctors" element={<DoctorList userData={DoctortData} />} />
+            <Route path="/dashboard/client/doctors" element={<DoctorList />} />
             <Route path="/dashboard/client/notifications" element={<ClientNotifications />} />
             <Route path="/dashboard/client/doctors/2" element={<BookAppointment />} />
             <Route path="/dashboard/doctor" element={<DoctorDashBoard />} />
-            <Route path="/dashboard/doctor/home" element={<DoctorHomePage userData={DoctortData} />} />
+            <Route path="/dashboard/doctor/home" element={<DoctorHomePage />} />
             <Route path="/dashboard/doctor/notifications" element={<DoctorNotifications />} />
-            <Route path="/dashboard/doctor/appointments" element={<Appointments userData={DoctortData} />} />
+            <Route path="/dashboard/doctor/appointments" element={<Appointments />} />
             <Route path="/dashboard/doctor/profile" element={<DoctorProfile />} />
             <Route path="/dashboard/doctor/logout" element={<DoctorLogout />} />
             <Route path="/dashboard/client/logout" element={<ClientLogout />} />

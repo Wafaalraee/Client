@@ -8,6 +8,7 @@ const DoctorLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user-id");
     localStorage.removeItem("doctor_id");
+    localStorage.removeItem("user-name");
     navigate('/login/client');
   };
 

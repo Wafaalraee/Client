@@ -1,12 +1,20 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import '../style/DoctorList.css'; 
 
 const DoctorList = () => {
-  const doctors = [
-    { id: 1, name: 'Dr. Smith', phoneNumber: '123-456-7890', address: '123 Medical St', fee: '$100', timing: '9:00 AM - 5:00 PM' },
-    { id: 2, name: 'Dr. Johnson', phoneNumber: '987-654-3210', address: '456 Health Ave', fee: '$120', timing: '10:00 AM - 6:00 PM' },
-  ];
+  const [doctors, setDoctorsData] = useState();
+
+  useEffect(() => {
+    axios.get("http://localhost:4500/doctors/git-all-doctors")
+      .then( result => {
+        setDoctorsData(result.data.data);
+      })
+      .catch( err => {
+        console.log(err)
+      })
+  }, [])
 
   return (
     <div className="dashboard-container">
@@ -19,8 +27,8 @@ const DoctorList = () => {
       </div>
       <nav className="dashboard-nav">
         <ul>
-        <li><Link to="/dashboard/client/home">Home</Link></li> 
-         <li><Link to="/dashboard/client/doctors">Doctors</Link></li>
+          <li><Link to="/dashboard/client/home">Home</Link></li> 
+          <li><Link to="/dashboard/client/doctors">Doctors</Link></li>
           <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/client/profile">Profile</Link></li>
@@ -31,14 +39,15 @@ const DoctorList = () => {
     <div className="doctor-list-container">
       <h2>List of Doctors</h2>
       <div className="doctors">
-        {doctors.map(doctor => (
-          <div key={doctor.id} className="doctor-card">
-            <h3>{doctor.name}</h3>
-            <p>Phone Number: {doctor.phoneNumber}</p>
-            <p>Address: {doctor.address}</p>
-            <p>Fee per Visit: {doctor.fee}</p>
-            <p>Timing: {doctor.timing}</p>
-            <Link to={`/dashboard/client/doctors/${doctor.id}`}>
+        {doctors && doctors.map(doctor => (
+          <div key={doctor._id} className="doctor-card">
+            <h3>{doctor.firstname} {doctor.lastname}</h3>
+            <p><span className='doctor-info-title'>Phone Number:</span> {doctor.phoneNumber}</p>
+            <p><span className='doctor-info-title'>Address:</span> {doctor.address}</p>
+            <p><span className='doctor-info-title'>Fee per Visit:</span> {doctor.feePerConsultation}</p>
+            <p><span className='doctor-info-title'>Available date:</span> {doctor.date}</p>
+            <p><span className='doctor-info-title'>Timing:</span> {doctor.time}</p>
+            <Link to={`/dashboard/client/doctors/${doctor._id}`}>
               <button>Book Appointment</button>
             </Link>
           </div>
