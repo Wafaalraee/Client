@@ -1,26 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import "../style/clienthome.css";
 import axios from 'axios';
 
-const ClientHomePage = async () => {
+const ClientHomePage = () => {
   const [userData, setUserData] = useState();
-
-  useEffect( async () => {
-    try {
-      const res = await axios.post(
-        "http://localhost:4500//pages/ClientHomePage",
-        {},
-        {
-            headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
 
   return (
     <div className="dashboard-container">
@@ -45,23 +29,14 @@ const ClientHomePage = async () => {
     <div className="dashboard-content">
       <h2>Welcome to your HomePage</h2>
       <div className='dashbord-info'>
-      <p>First Name: {userData.firstname}</p>
-      <p>Last Name: {userData.lastname}</p>
-      <p>Email: {userData.email}</p>
-      <p>Address: {userData.address}</p>
-      <p>Phone Number: {userData.phoneNumber}</p>
+      <p>First Name: {userData ? userData.firstname : "User first name"}</p>
+      <p>Last Name: {userData? userData.lastname : "User last name"}</p>
+      <p>Email: {userData ? userData.email : "User email"}</p>
     </div>
     </div>
   </div>
 
-  );
+  )
 }
 
 export default ClientHomePage;
-
-
-
-
-
-
-

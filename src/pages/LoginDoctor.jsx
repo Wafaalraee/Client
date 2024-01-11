@@ -24,7 +24,8 @@ const [err, setErr] = useState();
           window.location.href = "/dashboard/doctor";
           })
           .catch((error) => {
-                    setErr(error.response.data);
+            console.log(error)
+                    setErr(error.response.data.message);
             });
     } else {
       setErr("Email and Password are required");
@@ -54,8 +55,8 @@ const [err, setErr] = useState();
   
               <button type="submit" className="btn form-btn"  > Login </button>
               <p className='para'>Don't have an account? <Link to="/register/Doctor">Register here</Link>.</p>
+              <p className='err-msg'>{ err ? err : null }</p>  
           </form>
-          <h3>{ err ? err : null }</h3>  
       </div>    
     </div>       
   )

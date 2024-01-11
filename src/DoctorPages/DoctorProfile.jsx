@@ -54,11 +54,11 @@ const DoctorProfile = () => {
         </div>
         <nav className="dashboard-nav">
           <ul>
-            <li><Link to="/dashboard/client/home">Home</Link></li>
-            <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
-            <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
-            <li><Link to="/dashboard/client/profile">Profile</Link></li>
-            <li><Link to="/dashboard/client/logout">Logout</Link></li>
+            <li><Link to="/dashboard/doctor/home">Home</Link></li>
+            <li><Link to="/dashboard/doctor/appointments">Appointments</Link></li>
+            <li><Link to="/dashboard/doctor/notifications">Notifications</Link></li>
+            <li><Link to="/dashboard/doctor/profile">Profile</Link></li>
+            <li><Link to="/dashboard/doctor/logout">Logout</Link></li>
           </ul>
         </nav>
       </div>

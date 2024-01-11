@@ -174,9 +174,9 @@ function DoctorReg() {
           />
           <button type="submit" className="btn form-btn">Sign up</button>
           <p className='para'>Already registered? <Link to="/login/Doctor">Login</Link></p> 
+          <p className='err-msg'>{err ? err : null}</p>
+          <p className='success-msg'>{success ? success : null}</p> 
         </form>
-        <h3>{err ? err : null}</h3>
-        <h3>{success ? success : null}</h3> 
       </div>    
     </div>
   );

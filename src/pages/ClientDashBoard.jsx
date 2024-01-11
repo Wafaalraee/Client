@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../style/ClientDash.css';
 
 const ClientDashboard = () => {
+  const userName = localStorage.getItem("user-name") ? localStorage.getItem("user-name") : "USERNAME"
   return (
     <div className="dashboard-container">
       <div className="dashboard-sidebar">
@@ -10,7 +11,7 @@ const ClientDashboard = () => {
           <div className="profile-picture">
             <img src="https://placekitten.com/80/80" alt="Profile" />
           </div>
-          <p>Welcome, John Doe!</p>
+          <p>Welcome, {userName}!</p>
         </div>
         <nav className="dashboard-nav">
           <ul>
