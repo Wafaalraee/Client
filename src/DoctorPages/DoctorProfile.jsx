@@ -58,7 +58,7 @@ const DoctorProfile = () => {
             <li><Link to="/dashboard/doctor/appointments">Appointments</Link></li>
             <li><Link to="/dashboard/doctor/notifications">Notifications</Link></li>
             <li><Link to="/dashboard/doctor/profile">Profile</Link></li>
-            <li><Link to="/dashboard/doctor/logout">Logout</Link></li>
+            <li><Link to="/dashboard/logout">Logout</Link></li>
           </ul>
         </nav>
       </div>

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 import "../style/bookappointment.css"
 import axios from 'axios'
@@ -8,6 +8,7 @@ import axios from 'axios'
 const BookAppointment = () => {
   const [selectedDay, setSelectedDay] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+  const doctorName = localStorage.getItem("doctor-name");
 
       const handleChange = (e) => {
         setSelectedDay(e.target.value);
@@ -45,14 +46,14 @@ const BookAppointment = () => {
           <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/client/profile">Profile</Link></li>
-          <button className='logout'><Link to="/dashboard/client/logout">Logout</Link></button>
+          <button className='logout'><Link to="/dashboard/logout">Logout</Link></button>
         </ul>
       </nav>
     </div>
     <div className="dashboard-container">
       <div>
         <h2>Book Appointment</h2>
-        <p>Doctor: {doctorName}</p>
+        <p>Doctor: {doctorName ? doctorName : "DOCTOR Name"}</p>
         <label htmlFor="day">Select Day:</label>
         <input type="day" id="date" value={selectedDay} onChange={handleChange} />
         <br />

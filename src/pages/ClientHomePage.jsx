@@ -4,7 +4,7 @@ import "../style/clienthome.css";
 //import axios from 'axios';
 
 const ClientHomePage = () => {
- // const [userData, setUserData] = useState();
+ const [userData, setUserData] = useState();
 
   return (
     <div className="dashboard-container">
@@ -22,7 +22,7 @@ const ClientHomePage = () => {
           <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/client/profile">Profile</Link></li>
-          <button className='logout'><Link to="/dashboard/client/logout">Logout</Link></button>
+          <button className='logout'><Link to="/dashboard/logout">Logout</Link></button>
         </ul>
       </nav>
     </div>
