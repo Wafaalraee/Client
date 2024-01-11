@@ -28,8 +28,34 @@ nav {
   width: 100%;
   margin: auto;
 }
+.nav-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
-nav a {
+.logo-img{
+  width: 50px;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.nav-link a{
+  display:inline;
+  margin-right: 40px;
+  text-decoration: none;
+  color: #1e375a;
+  
+}
+.nav-btn{
+  margin-right:70px;
+}
+.register-btn{
+
+}
+
+/* nav a {
   float: left;
   display: block;
   color: rgb(15, 14, 14);
@@ -52,16 +78,16 @@ nav a.register {
   border-radius: 5px;
   margin-left: 10px;
   transition: background-color 0.3s;
-}
+} */
 
-nav a.login:hover,
+/* nav a.login:hover,
 nav a.register:hover {
   color: black;
-}
+} */
 
 .app-container {
   width: 100%;
-  margin: auto;
+  margin: 0 ,  auto;
 }
 
 section {
@@ -85,14 +111,14 @@ label {
 input,
 textarea {
   width: 100%;
-  padding: 8px;
+  padding: 8px ,10px;
   margin-bottom: 16px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: rgb(243, 235, 235);
 }
 
-button {
+.submit {
   background-color:  #177ce8;
   color: white;
   padding: 10px 10px ;
@@ -107,9 +133,12 @@ button {
 }
 
 button:hover {
-  background-color:  #07f;
+  background-color:#177ce8;
 }
 
+.footer-container{
+  margin-top:200px;
+}
 .social-links {
   color: white;
   font-size:20px;
@@ -166,6 +195,7 @@ button:hover {
   color: #fff;
   justify-content: space-between;
   padding: 0 100px;
+  margin-top: 550px;
 }
 
 .footer-links {

@@ -2,23 +2,32 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
 import "../style/bookappointment.css"
+import axios from 'axios'
 
 
-const BookAppointment = ({ doctorName }) => {
-  const [selectedDate, setSelectedDate] = useState('');
+const BookAppointment = () => {
+  const [selectedDay, setSelectedDay] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
 
-  const handleDateChange = (e) => {
-    setSelectedDate(e.target.value);
-  };
+      const handleChange = (e) => {
+        setSelectedDay(e.target.value);
+        setSelectedTime(e.target.value);
+      };
 
-  const handleTimeChange = (e) => {
-    setSelectedTime(e.target.value);
-  };
-
-  const handleCheckAvailability = () => {
-    console.log(`Booking appointment with ${doctorName} on ${selectedDate} at ${selectedTime}`);
-  };
+        useEffect(() => {
+          axios.post("http://localhost:4500/doctors/book-appointment")
+            .then( result => {
+              setSelectedDay(result.data);
+              setSelectedTime(result.data)
+            })
+            .catch( err => {
+              console.log(err)
+            })
+        }, [])
+    
+  // const handleCheckAvailability = () => {
+  //   console.log(`Booking appointment with ${doctorName} on ${selectedDate} at ${selectedTime}`);
+  // };
 
   return (
     <div className="dashboard-container">
@@ -44,13 +53,13 @@ const BookAppointment = ({ doctorName }) => {
       <div>
         <h2>Book Appointment</h2>
         <p>Doctor: {doctorName}</p>
-        <label htmlFor="date">Select Date:</label>
-        <input type="date" id="date" value={selectedDate} onChange={handleDateChange} />
+        <label htmlFor="day">Select Day:</label>
+        <input type="day" id="date" value={selectedDay} onChange={handleChange} />
         <br />
         <label htmlFor="time">Select Time:</label>
-        <input type="time" id="time" value={selectedTime} onChange={handleTimeChange} />
+        <input type="time" id="time" value={selectedTime} onChange={handleChange} />
         <br />
-        <button onClick={handleCheckAvailability}>Check Availability</button>
+        <button onClick={BookAppointment}>Book Appointment</button>
       </div>
     </div>
     </div>

@@ -1,26 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import image from "../image/logo.jpeg";
+
 const Navbar = () => {
   return (
+    <nav className='nav-bar'>
+      <div className='logo'>
+      <img  className="logo-img" src={image}  alt="logo" />
+      </div>
 
-    <nav>
+       <div className='nav-link'>
       <a href="/">Home</a>
-      <a href="/Doctors">Doctors</a>
-      <a href="/appointments">Appointments</a>
-      <a href="/Notifications">Notifications</a>
+      <a href="/">About Us</a>
+      <a href="/">Contact</a>
+      </div>
+
+      <div className='nav-btn'>
       <div className="dropdown">
-          <button className="login">Login</button>
+          <button className="login-btn">Login</button>
           <div className="dropdown-content">
             <Link to="/login/doctor">Login As Doctor</Link>
             <Link to="/login/client">Login As Client</Link>
           </div>
         </div>
       <div className="dropdown">
-        <button className="register">Register</button>
+        <button className="register-btn">Register</button>
         <div className="dropdown-content">
           <Link to="/register/doctor">Apply As Doctor</Link>
           <Link to="/register/client">Apply As Client</Link>
         </div>
+      </div>
       </div>
     </nav>
     

@@ -43,7 +43,7 @@ const DoctorList = () => {
           <div key={doctor._id} className="doctor-card">
             <h3>{doctor.firstname} {doctor.lastname}</h3>
             <p><span className='doctor-info-title'>Phone Number:</span> {doctor.phoneNumber}</p>
-            <p><span className='doctor-info-title'>Address:</span> {doctor.address}</p>
+            <p><span className='doctor-info-title'>Specialization:</span> {doctor.specialization}</p>
             <p><span className='doctor-info-title'>Fee per Visit:</span> {doctor.feePerConsultation}</p>
             <p><span className='doctor-info-title'>Available date:</span> {doctor.date}</p>
             <p><span className='doctor-info-title'>Timing:</span> {doctor.time}</p>

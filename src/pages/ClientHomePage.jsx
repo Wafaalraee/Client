@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import "../style/clienthome.css";
-import axios from 'axios';
+//import axios from 'axios';
 
 const ClientHomePage = () => {
-  const [userData, setUserData] = useState();
+ // const [userData, setUserData] = useState();
 
   return (
     <div className="dashboard-container">
