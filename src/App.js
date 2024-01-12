@@ -25,7 +25,6 @@ import Logout from './pages/Logout';
 import './App.css';
 
 const App = () => {
-
   return (
     <Router>
       <div className="App">
@@ -44,7 +43,7 @@ const App = () => {
             <Route path="/dashboard/client/appointments" element={<ClientAppointmentsPage />} />
             <Route path="/dashboard/client/doctors" element={<DoctorList />} />
             <Route path="/dashboard/client/notifications" element={<ClientNotifications />} />
-            <Route path="/dashboard/client/doctors/:id" element={<BookAppointment />} />
+            <Route path="/dashboard/client/doctors/:doctorId" element={<BookAppointment />} />
             <Route path="/dashboard/doctor" element={<DoctorDashBoard />} />
             <Route path="/dashboard/doctor/home" element={<DoctorHomePage />} />
             <Route path="/dashboard/doctor/notifications" element={<DoctorNotifications />} />

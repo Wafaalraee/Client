@@ -1,44 +1,42 @@
-
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; 
-import "../style/bookappointment.css"
-import axios from 'axios'
-
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
+import "../style/bookappointment.css";
 
 const BookAppointment = () => {
-  const [selectedDay, setSelectedDay] = useState('');
+  const { doctorId } = useParams();
+  const [doctorInfo, setDoctorInfo] = useState({});
+  const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const doctorName = localStorage.getItem("doctor-name");
 
-      const handleChange = (e) => {
-        setSelectedDay(e.target.value);
-        setSelectedTime(e.target.value);
-      };
+  useEffect(() => {
+    axios.get(`http://localhost:4500/doctors/${doctorId}`)
+      .then(response => {
+        setDoctorInfo(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching doctor information:', error);
+      });
+  }, [doctorId]);
 
-        useEffect(() => {
-          axios.post("http://localhost:4500/doctors/book-appointment")
-            .then( result => {
-              setSelectedDay(result.data);
-              setSelectedTime(result.data)
-            })
-            .catch( err => {
-              console.log(err)
-            })
-        }, [])
-    
-  // const handleCheckAvailability = () => {
-  //   console.log(`Booking appointment with ${doctorName} on ${selectedDate} at ${selectedTime}`);
-  // };
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value);
+  };
+
+  const handleTimeChange = (e) => {
+    setSelectedTime(e.target.value);
+  };
 
   return (
     <div className="dashboard-container">
-    <div className="dashboard-sidebar">
-      <div className="client-info">
-        <div className="profile-picture">
-          <img src="https://placekitten.com/80/80" alt="Profile" />
+      <div className="dashboard-sidebar">
+        <div className="client-info">
+          <div className="profile-picture">
+            <img src="https://placekitten.com/80/80" alt="Profile" />
+          </div>
+          <p>Welcome, John Doe!</p>
         </div>
-        <p>Welcome, John Doe!</p>
-      </div>
       <nav className="dashboard-nav">
         <ul>
         <li><Link to="/dashboard/client/home">Home</Link></li> 
@@ -50,24 +48,29 @@ const BookAppointment = () => {
         </ul>
       </nav>
     </div>
-    <div className="dashboard-container">
-      <div>
-        <h2>Book Appointment</h2>
-        <p>Doctor: {doctorName ? doctorName : "DOCTOR Name"}</p>
-        <label htmlFor="day">Select Day:</label>
-        <input type="day" id="date" value={selectedDay} onChange={handleChange} />
-        <br />
-        <label htmlFor="time">Select Time:</label>
-        <input type="time" id="time" value={selectedTime} onChange={handleChange} />
-        <br />
-        <button onClick={BookAppointment}>Book Appointment</button>
+      <div className="dashboard-container">
+        <div>
+          <h2>Book Appointment</h2>
+          <p>Doctor: {doctorInfo.firstname} {doctorInfo.lastname}</p>
+          <label htmlFor="date">Select Date:</label>
+          <input type="date" id="date" value={selectedDate} onChange={handleDateChange} />
+          <br />
+          <label htmlFor="time">Select Time:</label>
+          <input type="time" id="time" value={selectedTime} onChange={handleTimeChange} />
+          <br />
+          <Link to={`/dashboard/client/doctors/${doctorId}`}>
+            <button>Book Now</button>
+          </Link>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
 
 export default BookAppointment;
+
+
+
 
 
 

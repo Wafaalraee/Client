@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../style/Doctorreg.css';  
 import axios from 'axios';
-
+import '../style/Doctorreg.css';
 function DoctorReg() {
   const [user, setUser] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    specialization: "",
-    date: "",
-    time: "",
-    experience: "",
-    feePerConsultation: "",
-    phoneNumber: "",
-    address: "",
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    specialization: '',
+    experience: '',
+    feePerConsultation: '',
+    phoneNumber: '',
+    address: '',
+    availability: {
+      days: {
+        monday: false,
+        tuesday: false,
+        wednesday: false,
+        thursday: false,
+        friday: false,
+        saturday: false,
+        sunday: false,
+      },
+      startTime: '',
+      endTime: '',
+    },
   });
 
   const specializationOptions = [
@@ -26,38 +36,20 @@ function DoctorReg() {
     'Pediatrics',
   ];
 
-  const [err, setErr] = useState("");
-  const [success, setSuccess] = useState("");
+  const [err, setErr] = useState('');
+  const [success, setSuccess] = useState('');
 
-  const regDoctor = (e) => {
-    e.preventDefault();
-    if (
-      user.email !== "" &&
-      user.password !== "" &&
-      user.firstname !== "" &&
-      user.lastname !== "" &&
-      user.specialization !== "" &&
-      user.date !== "" &&
-      user.time !== "" &&
-      user.experience !== "" &&
-      user.feePerConsultation !== "" &&
-      user.phoneNumber !== "" &&
-      user.address !== ""
-    ) {
-      axios
-        .post("http://localhost:4500/register/doctor", user)
-        .then((result) => {
-          setSuccess(result.data.message);
-          // Redirect to login page after successful registration
-          window.location.href = "/login/doctor";
-        })
-        .catch((err) => {
-          console.error(err);
-          setErr(err.response.data);
-        });
-    } else {
-      setErr("All fields are required");
-    }
+  const handleCalendarChange = (day) => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      availability: {
+        ...prevUser.availability,
+        days: {
+          ...prevUser.availability.days,
+          [day]: !prevUser.availability.days[day],
+        },
+      },
+    }));
   };
 
   const handleChange = (e) => {
@@ -65,6 +57,47 @@ function DoctorReg() {
       ...user,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleTimeChange = (e) => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      availability: {
+        ...prevUser.availability,
+        [e.target.name]: e.target.value,
+      },
+    }));
+  };
+
+  const regDoctor = (e) => {
+    e.preventDefault();
+    if (
+      user.email !== '' &&
+      user.password !== '' &&
+      user.firstname !== '' &&
+      user.lastname !== '' &&
+      user.specialization !== '' &&
+      user.experience !== '' &&
+      user.feePerConsultation !== '' &&
+      user.phoneNumber !== '' &&
+      user.address !== '' &&
+      Object.values(user.availability.days).some((day) => day) &&
+      user.availability.startTime !== '' &&
+      user.availability.endTime !== ''
+    ) {
+      axios
+        .post('http://localhost:4500/register/doctor', user)
+        .then((result) => {
+          setSuccess(result.data.message);
+          window.location.href = '/login/doctor';
+        })
+        .catch((err) => {
+          console.error(err);
+          setErr(err.response.data);
+        });
+    } else {
+      setErr('All fields are required');
+    }
   };
 
   return (
@@ -120,21 +153,37 @@ function DoctorReg() {
               <option key={option} value={option}>{option}</option>
             ))}
           </select>
-          <label htmlFor="date">Date:</label>
+          <label>Availability Days:</label>
+          <div className='checkbox-list'>
+            {Object.keys(user.availability.days).map((day) => (
+              <div key={day} className='checkbox-container'>
+                <input
+                  type='checkbox'
+                  name={day}
+                  checked={user.availability.days[day]}
+                  onChange={() => handleCalendarChange(day)}
+                />
+                <label htmlFor={day}>{day.charAt(0).toUpperCase() + day.slice(1)}</label>
+              </div>
+            ))}
+          </div>
+
+          <label htmlFor='startTime'>Availability Time - From:</label>
           <input
-            type="date"
-            name="date"
-            className="form-input"
-            value={user.date}
-            onChange={handleChange}
+            type='time'
+            name='startTime'
+            className='form-input'
+            value={user.availability.startTime}
+            onChange={handleTimeChange}
           />
-          <label htmlFor="time">Time:</label>
+
+          <label htmlFor='endTime'>Availability Time - To:</label>
           <input
-            type="time"
-            name="time"
-            className="form-input"
-            value={user.time}
-            onChange={handleChange}
+            type='time'
+            name='endTime'
+            className='form-input'
+            value={user.availability.endTime}
+            onChange={handleTimeChange}
           />
           <label htmlFor="experience">Experience in years:</label>
           <input
@@ -174,15 +223,21 @@ function DoctorReg() {
           />
           <button type="submit" className="btn form-btn">Sign up</button>
           <p className='para'>Already registered? <Link to="/login/Doctor">Login</Link></p> 
-          <p className='err-msg'>{err ? err : null}</p>
-          <p className='success-msg'>{success ? success : null}</p> 
         </form>
+        <p className='err-msg'>{err ? err.message : null}</p>
+        <p className='success-msg'>{success ? success.message : null}</p>
+
       </div>    
     </div>
   );
 }
 
 export default DoctorReg;
+
+
+
+
+
 
 
 
