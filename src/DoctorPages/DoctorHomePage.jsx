@@ -22,7 +22,7 @@ const DoctorHomePage = ({ userData }) => {
           <li><Link to="/dashboard/doctor/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/doctor/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/doctor/profile">Profile</Link></li>
-          <button className='logout'><Link to="/dashboard/doctor/logout">Logout</Link></button>
+          <button className='logout'><Link to="/dashboard/logout">Logout</Link></button>
         </ul>
       </nav>
     </div>

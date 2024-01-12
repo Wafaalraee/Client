@@ -21,14 +21,10 @@ import DoctorHomePage from './DoctorPages/DoctorHomePage';
 import DoctorNotifications from './DoctorPages/DoctorNotifications';
 import Appointments from './DoctorPages/Appointments';
 import DoctorProfile from './DoctorPages/DoctorProfile';
-import DoctorLogout from './DoctorPages/DoctorLogout';
-import ClientLogout from './pages/ClientLogout';
+import Logout from './pages/Logout';
 import './App.css';
 
 const App = () => {
-  const [clientData] = useState({
-  });
-
   return (
     <Router>
       <div className="App">
@@ -44,7 +40,7 @@ const App = () => {
             <Route path="/dashboard/client" element={<ClientDashBoard />} />
             <Route path="/dashboard/client/profile" element={<ProfilePage />} />
             <Route path="/dashboard/client/home" element={<ClientHomePage />} />
-            <Route path="/dashboard/client/appointments" element={<ClientAppointmentsPage userData={clientData} />} />
+            <Route path="/dashboard/client/appointments" element={<ClientAppointmentsPage />} />
             <Route path="/dashboard/client/doctors" element={<DoctorList />} />
             <Route path="/dashboard/client/notifications" element={<ClientNotifications />} />
             <Route path="/dashboard/client/doctors/:doctorId" element={<BookAppointment />} />
@@ -53,8 +49,7 @@ const App = () => {
             <Route path="/dashboard/doctor/notifications" element={<DoctorNotifications />} />
             <Route path="/dashboard/doctor/appointments" element={<Appointments />} />
             <Route path="/dashboard/doctor/profile" element={<DoctorProfile />} />
-            <Route path="/dashboard/doctor/logout" element={<DoctorLogout />} />
-            <Route path="/dashboard/client/logout" element={<ClientLogout />} />
+            <Route path="/dashboard/logout" element={<Logout />} />
           </Routes>
         </div>
         <Footer />

@@ -8,6 +8,7 @@ const BookAppointment = () => {
   const [doctorInfo, setDoctorInfo] = useState({});
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+  const doctorName = localStorage.getItem("doctor-name");
 
   useEffect(() => {
     axios.get(`http://localhost:4500/doctors/${doctorId}`)
@@ -36,17 +37,17 @@ const BookAppointment = () => {
           </div>
           <p>Welcome, John Doe!</p>
         </div>
-        <nav className="dashboard-nav">
-          <ul>
-            <li><Link to="/dashboard/client/home">Home</Link></li>
-            <li><Link to="/dashboard/client/doctors">Doctors</Link></li>
-            <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
-            <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
-            <li><Link to="/dashboard/client/profile">Profile</Link></li>
-            <button className='logout'><Link to="/dashboard/client/logout">Logout</Link></button>
-          </ul>
-        </nav>
-      </div>
+      <nav className="dashboard-nav">
+        <ul>
+        <li><Link to="/dashboard/client/home">Home</Link></li> 
+         <li><Link to="/dashboard/client/doctors">Doctors</Link></li>
+          <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
+          <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
+          <li><Link to="/dashboard/client/profile">Profile</Link></li>
+          <button className='logout'><Link to="/dashboard/logout">Logout</Link></button>
+        </ul>
+      </nav>
+    </div>
       <div className="dashboard-container">
         <div>
           <h2>Book Appointment</h2>

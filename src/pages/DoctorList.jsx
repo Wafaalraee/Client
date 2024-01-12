@@ -32,7 +32,7 @@ const DoctorList = () => {
           <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
           <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/client/profile">Profile</Link></li>
-          <button className='logout'><Link to="/dashboard/client/logout">Logout</Link></button>
+          <button className='logout'><Link to="/dashboard/logout">Logout</Link></button>
         </ul>
       </nav>
     </div>
@@ -43,7 +43,7 @@ const DoctorList = () => {
           <div key={doctor._id} className="doctor-card">
             <h3>{doctor.firstname} {doctor.lastname}</h3>
             <p><span className='doctor-info-title'>Phone Number:</span> {doctor.phoneNumber}</p>
-            <p><span className='doctor-info-title'>Address:</span> {doctor.address}</p>
+            <p><span className='doctor-info-title'>Specialization:</span> {doctor.specialization}</p>
             <p><span className='doctor-info-title'>Fee per Visit:</span> {doctor.feePerConsultation}</p>
             <p><span className='doctor-info-title'>Available date:</span> {doctor.date}</p>
             <p><span className='doctor-info-title'>Timing:</span> {doctor.time}</p>
