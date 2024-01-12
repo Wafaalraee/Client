@@ -47,7 +47,7 @@ const BookAppointment = () => {
       </nav>
     </div>
       <div className="dashboard-container">
-        <div>
+        <div className='m-l-3'>
           <h2>Book Appointment</h2>
           <p>Doctor: {doctorInfo.firstname} {doctorInfo.lastname}</p>
           <label htmlFor="date">Select Date:</label>
