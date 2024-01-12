@@ -37,19 +37,45 @@ const DoctorList = () => {
     <div className="doctor-list-container">
       <h2>List of Doctors</h2>
       <div className="doctors">
-        {doctors && doctors.map(doctor => (
-          <div key={doctor._id} className="doctor-card">
-            <h3>{doctor.firstname} {doctor.lastname}</h3>
-            <p><span className='doctor-info-title'>Phone Number:</span> {doctor.phoneNumber}</p>
-            <p><span className='doctor-info-title'>Specialization:</span> {doctor.specialization}</p>
-            <p><span className='doctor-info-title'>Fee per Visit:</span> {doctor.feePerConsultation}</p>
-            <p><span className='doctor-info-title'>Available date:</span> {doctor.date}</p>
-            <p><span className='doctor-info-title'>Timing:</span> {doctor.time}</p>
-            <Link to={`/dashboard/client/doctors/${doctor._id}`}>
-              <button>Book Appointment</button>
-            </Link>
-          </div>
-        ))}
+        {doctors && doctors.map(doctor => {
+          let Avdays = [];
+          let days = Object.keys(doctor.availability.days[0]);
+          days.forEach(day => {
+            if( doctor.availability.days[0][day] !== false ) {
+              Avdays.push(day)
+            }
+          })
+          return (
+            <div key={doctor._id} className="doctor-card">
+              <h3>{doctor.firstname} {doctor.lastname}</h3>
+              <p><span className='doctor-info-title'>Phone Number:</span> {doctor.phoneNumber}</p>
+              <p><span className='doctor-info-title'>Specialization:</span> {doctor.specialization}</p>
+              <p><span className='doctor-info-title'>Fee per Visit:</span> {doctor.feePerConsultation}</p>
+              <>
+                <span className='doctor-info-title'>Available date:</span> 
+                <ul>
+                  {
+                    Avdays.map(day => {
+                      return(
+                        <li key={day}>{day},</li>
+                      )
+                    })
+                  }
+                </ul>
+              </>
+              <>
+                <span className='doctor-info-title'>Timing:</span>
+                <ul>
+                  <li>From: {doctor.availability.startTime}</li>
+                  <li>To: {doctor.availability.endTime}</li>
+                </ul>
+              </>
+              <Link to={`/dashboard/client/doctors/${doctor._id}`}>
+                <button>Book Appointment</button>
+              </Link>
+            </div>
+          )
+        })}
       </div>
     </div>
     </div>
