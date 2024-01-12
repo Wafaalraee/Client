@@ -8,6 +8,8 @@ const BookAppointment = () => {
   const [doctorInfo, setDoctorInfo] = useState({});
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+  const [msg, setMsg] = useState('');
+
   // const doctorName = localStorage.getItem("doctor-name");
 
   useEffect(() => {
@@ -27,6 +29,22 @@ const BookAppointment = () => {
   const handleTimeChange = (e) => {
     setSelectedTime(e.target.value);
   };
+
+  const submitAppointment = () => {
+    let data = {
+      doctorId: doctorId,
+      userId: localStorage.getItem("user-id"),
+      day: selectedDate,
+      time: selectedTime,
+    }
+    axios.post(`http://localhost:4500/set-appointment`, data)
+      .then(response => {
+        setMsg(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching doctor information:', error);
+      });
+  }
 
   return (
     <div className="dashboard-container">
@@ -56,9 +74,8 @@ const BookAppointment = () => {
           <label htmlFor="time">Select Time:</label>
           <input type="time" id="time" value={selectedTime} onChange={handleTimeChange} />
           <br />
-          <Link to={`/dashboard/client/doctors/${doctorId}`}>
-            <button>Book Now</button>
-          </Link>
+          <button onClick={submitAppointment}>Book Now</button>
+          <h4 className='success-msg'>{msg && msg}</h4>
         </div>
       </div>
     </div>
