@@ -9,7 +9,7 @@ const Logout = () => {
     localStorage.removeItem("user-id");
     localStorage.removeItem("doctor_id");
     localStorage.removeItem("user-name");
-    navigate('/login/client');
+    window.location.href = "/"
   };
 
   return (

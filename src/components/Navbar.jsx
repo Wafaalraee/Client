@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import image from "../image/logo.jpeg";
 
 const Navbar = () => {
+  console.log(localStorage.getItem("token"))
   return (
     <nav className='nav-bar'>
       <div className='logo'>
@@ -16,20 +17,26 @@ const Navbar = () => {
       </div>
 
       <div className='nav-btn'>
-      <div className="dropdown">
-          <button className="login-btn">Login</button>
-          <div className="dropdown-content">
-            <Link to="/login/doctor">Login As Doctor</Link>
-            <Link to="/login/client">Login As Client</Link>
-          </div>
-        </div>
-      <div className="dropdown">
-        <button className="register-btn">Register</button>
-        <div className="dropdown-content">
-          <Link to="/register/doctor">Apply As Doctor</Link>
-          <Link to="/register/client">Apply As Client</Link>
-        </div>
-      </div>
+        {
+          localStorage.getItem("token") === null? 
+            <div>
+                <div className="dropdown">
+                  <button className="login-btn">Login</button>
+                  <div className="dropdown-content">
+                    <Link to="/login/doctor">Login As Doctor</Link>
+                    <Link to="/login/client">Login As Client</Link>
+                  </div>
+                </div>
+              <div className="dropdown">
+                <button className="register-btn">Register</button>
+                <div className="dropdown-content">
+                  <Link to="/register/doctor">Apply As Doctor</Link>
+                  <Link to="/register/client">Apply As Client</Link>
+                </div>
+              </div>
+            </div>
+          : null
+        }
       </div>
     </nav>
     
