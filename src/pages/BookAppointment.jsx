@@ -8,7 +8,7 @@ const BookAppointment = () => {
   const [doctorInfo, setDoctorInfo] = useState({});
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
-  const doctorName = localStorage.getItem("doctor-name");
+  // const doctorName = localStorage.getItem("doctor-name");
 
   useEffect(() => {
     axios.get(`http://localhost:4500/doctors/${doctorId}`)
