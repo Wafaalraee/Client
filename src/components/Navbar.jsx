@@ -35,7 +35,10 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-          : null
+          :
+            localStorage.getItem("doctor_id") != null ? 
+              <Link to="/dashboard/doctor" className="register-btn"> Doctor Dashboard</Link>
+          :   <Link to="/dashboard/client" className="register-btn">Client Dashboard</Link>
         }
       </div>
     </nav>
