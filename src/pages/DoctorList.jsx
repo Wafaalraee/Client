@@ -29,8 +29,6 @@ const DoctorList = () => {
         <ul>
           <li><Link to="/dashboard/client/home">Home</Link></li> 
           <li><Link to="/dashboard/client/doctors">Doctors</Link></li>
-          <li><Link to="/dashboard/client/appointments">Appointments</Link></li>
-          <li><Link to="/dashboard/client/notifications">Notifications</Link></li>
           <li><Link to="/dashboard/client/profile">Profile</Link></li>
           <button className='logout'><Link to="/dashboard/logout">Logout</Link></button>
         </ul>
