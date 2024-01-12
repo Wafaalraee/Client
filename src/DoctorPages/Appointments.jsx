@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom'; 
 import '../style/ClientAppointmentsPage.css'; 
@@ -5,41 +6,55 @@ import '../style/ClientAppointmentsPage.css';
 const DoctorAppointments = ({ userData }) => {
   const [appointments, setAppointments] = useState([]);
 
-  const fetchAppointments = useCallback(async () => {
-    try {
-      const response = await fetch(`/api/appointments?doctorId=${userData.id}`);
-      const data = await response.json();
-      setAppointments(data);
-    } catch (error) {
-      console.error('Error fetching appointments:', error);
-    }
-  }, [userData.id]);
+  // const fetchAppointments = useCallback(async () => {
+  //   try {
+  //     const response = await fetch(`/api/appointments?doctorId=${userData.id}`);
+  //     const data = await response.json();
+  //     setAppointments(data);
+  //   } catch (error) {
+  //     console.error('Error fetching appointments:', error);
+  //   }
+  // }, [userData.id]);
 
-  const handleApprove = async (appointmentId) => {
-    try {
-      await fetch(`/api/appointments/${appointmentId}/approve`, {
-        method: 'PUT',
-      });
-      fetchAppointments();
-    } catch (error) {
-      console.error('Error approving appointment:', error);
-    }
-  };
+  // const handleApprove = async (appointmentId) => {
+  //   try {
+  //     await fetch(`/api/appointments/${appointmentId}/approve`, {
+  //       method: 'PUT',
+  //     });
+  //     fetchAppointments();
+  //   } catch (error) {
+  //     console.error('Error approving appointment:', error);
+  //   }
+  // };
 
-  const handleReject = async (appointmentId) => {
-    try {
-      await fetch(`/api/appointments/${appointmentId}/reject`, {
-        method: 'PUT',
-      });
-      fetchAppointments();
-    } catch (error) {
-      console.error('Error rejecting appointment:', error);
-    }
-  };
+  // const handleReject = async (appointmentId) => {
+  //   try {
+  //     await fetch(`/api/appointments/${appointmentId}/reject`, {
+  //       method: 'PUT',
+  //     });
+  //     fetchAppointments();
+  //   } catch (error) {
+  //     console.error('Error rejecting appointment:', error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchAppointments();
-  }, [fetchAppointments]);
+  // useEffect(() => {
+  //   fetchAppointments();
+  // }, [fetchAppointments]);
+
+  useEffect( () => {
+    let doctorId = localStorage.getItem("doctor_id")
+    if(doctorId) { 
+      axios.get(`http://localhost:4500/get-doctor-appointments/${doctorId}`)
+        .then( result => {
+          console.log(result.data);
+          setAppointments(result.data);
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+  }, [])
 
   return (
     <div className="dashboard-container">
@@ -67,9 +82,9 @@ const DoctorAppointments = ({ userData }) => {
           <table className="appointments-table">
             <thead>
               <tr>
-                <th>ID</th>
+                <th>#</th>
                 <th>Client</th>
-                <th>Phone</th>
+                <th>Email</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Status</th>
@@ -77,19 +92,19 @@ const DoctorAppointments = ({ userData }) => {
               </tr>
             </thead>
             <tbody>
-              {appointments.map(appointment => (
+              {appointments && appointments.map((appointment, index) => (
                 <tr key={appointment.id}>
-                  <td>{appointment.id}</td>
-                  <td>{appointment.client}</td>
-                  <td>{appointment.phone}</td>
-                  <td>{appointment.date}</td>
+                  <td>{index+1}</td>
+                  <td>{appointment.userId.firstname} {appointment.userId.lastname}</td>
+                  <td>{appointment.userId.email}</td>
+                  <td>{appointment.day}</td>
                   <td>{appointment.time}</td>
                   <td>{appointment.status}</td>
                   <td>
-                    {appointment.status === 'pending' && (
+                    {appointment.status === 'Pending' && (
                       <>
-                        <button onClick={() => handleApprove(appointment.id)}>Approve</button>
-                        <button onClick={() => handleReject(appointment.id)}>Reject</button>
+                        <button>Approve</button>
+                        <button>Reject</button>
                       </>
                     )}
                   </td>
