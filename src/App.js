@@ -27,11 +27,6 @@ import './App.css';
 
 const App = () => {
   const [clientData] = useState({
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john.doe@example.com',
-    address: '123 Main St, Cityville',
-    phoneNumber: '123-456-7890',
   });
 
   return (
@@ -52,7 +47,7 @@ const App = () => {
             <Route path="/dashboard/client/appointments" element={<ClientAppointmentsPage userData={clientData} />} />
             <Route path="/dashboard/client/doctors" element={<DoctorList />} />
             <Route path="/dashboard/client/notifications" element={<ClientNotifications />} />
-            <Route path="/dashboard/client/doctors/2" element={<BookAppointment />} />
+            <Route path="/dashboard/client/doctors/:doctorId" element={<BookAppointment />} />
             <Route path="/dashboard/doctor" element={<DoctorDashBoard />} />
             <Route path="/dashboard/doctor/home" element={<DoctorHomePage />} />
             <Route path="/dashboard/doctor/notifications" element={<DoctorNotifications />} />
